@@ -3,7 +3,10 @@ guid: f01e72c408119e24da066dd00309289e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Paddle: {fileID: 5818839310252882439, guid: 9ff48e621b6c00840892ccbdb1abbec7, type: 3}
+  - Ball: {fileID: 3284146719190942760, guid: f36109669e3d5ba41afdbf25498eea1c, type: 3}
+  - BrickPrefab: {fileID: 958362262682091359, guid: c87d69a0089015647bcf0ecffa2d5a32, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

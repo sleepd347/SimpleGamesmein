@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class BreakoutManager : MonoBehaviour
 {
@@ -12,7 +12,10 @@ public class BreakoutManager : MonoBehaviour
     //As a manager, I keep a link to all the major game elements
     public PaddleController Paddle;
     public BallController Ball;
-    
+    int n;
+    float movex;
+    float movey;
+
     //The brick prefab
     public BrickController BrickPrefab;
     
@@ -26,8 +29,13 @@ public class BreakoutManager : MonoBehaviour
 
         //This is the code for spawning bricks. It's not very good.
         //How could we make this spawn lots of bricks more efficiently?
-        Instantiate(BrickPrefab, new Vector3(0, 1, 0), Quaternion.identity);
-        Instantiate(BrickPrefab, new Vector3(0, 1.5f, 0), Quaternion.identity);
+        for(n = 0; n < 10; n++)
+        {
+            movex = Random.Range(-10, 10);
+            movey = Random.Range(-10, 10);
+            Instantiate(BrickPrefab, new Vector3(movex, movey, 0), Quaternion.identity);
+        }
+
     }
 
     void Update()
@@ -36,7 +44,7 @@ public class BreakoutManager : MonoBehaviour
         if (AllBricks.Count == 0)
         {
             //If so, win
-            SceneManager.LoadScene("You Win");
+            //SceneManager.LoadScene("You Win");
         }
     }
 
