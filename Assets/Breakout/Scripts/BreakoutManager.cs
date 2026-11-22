@@ -13,6 +13,7 @@ public class BreakoutManager : MonoBehaviour
     public PaddleController Paddle;
     public BallController Ball;
     int n;
+    int u;
     float movex;
     float movey;
 
@@ -29,13 +30,19 @@ public class BreakoutManager : MonoBehaviour
 
         //This is the code for spawning bricks. It's not very good.
         //How could we make this spawn lots of bricks more efficiently?
-        for(n = 0; n < 10; n++)
+        for(n = 0; n < 10; n++) //use n here to make it run 10 times. ok wait whys it only running 9 times? I set n to 0, make it n<10 so shouldnt it run from 0-9 which is 10? oh nvm.counted wrong
+        {
+            movex = Random.Range(-5, 5); //just random range of x values
+            movey = Random.Range(-5, 5); //the random range of y values
+            Instantiate(BrickPrefab, new Vector3(movex, movey, 0), Quaternion.identity); //the code that spawns the brick at a random location
+        }
+        //for step 2 im not sure if your asking us to make 4 of the 10 bricks spawn on the same y level or just spawn 4 extra bricks on the same level. I'm assuming its the later.
+        for(u = 0; u < 4; u++)
         {
             movex = Random.Range(-10, 10);
-            movey = Random.Range(-10, 10);
-            Instantiate(BrickPrefab, new Vector3(movex, movey, 0), Quaternion.identity);
+            movey = 4; //right yeah the code is the same except y isnt a random range now. its just y=4.
+            Instantiate(BrickPrefab, new Vector3(movex,movey, 0), Quaternion.identity);
         }
-
     }
 
     void Update()
