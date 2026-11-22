@@ -34,13 +34,17 @@ public class BreakoutManager : MonoBehaviour
         //for step 2 im not sure if your asking us to make 4 of the 10 bricks spawn on the same y level or just spawn 4 extra bricks on the same level. I'm assuming its the later. getting rid of step 1 stuf.
 
         //ok im chaning step 2's code for step 3 now.
+        //the last part is kind of the same as step 3, just working with y instead of x now.
             //ok -6.75 and 6.75 are the borders where the bricks touch wall. 6.75*2 is 13.5, 13.5/8 should be the 8 eight coords where i need to spawn a brick at? Set a list of x values for it to instantiate?
-            List<float> xpositions = new List<float> { -6.75f, -4.75f, -2.75f, -0.75f, 1.25f, 3.25f, 5.25f, 7.25f}; //ok wait hold up. the spacing between each brick is 2. So I can't have a row of 8 bricks that fit inside the walls? is this a mistake in the assingment or do i gotta move the walls? ok i just moved the walls over.
-            movey = 4; //right yeah the code is the same except y isnt a random range now. its just y=4.
+            List<float> ypositions = new List<float> { 4.5f, 4, 3.5f, 3,2.5f,2,};
+        foreach( var y in ypositions )
+        {
+            List<float> xpositions = new List<float> { -6.75f, -4.75f, -2.75f, -0.75f, 1.25f, 3.25f, 5.25f, 7.25f }; //ok wait hold up. the spacing between each brick is 2. So I can't have a row of 8 bricks that fit inside the walls? is this a mistake in the assingment or do i gotta move the walls? ok i just moved the walls over.
             foreach (var x in xpositions)
             {
-                Instantiate(BrickPrefab, new Vector3(x, movey, 0), Quaternion.identity); //ok yeah this works. Im spawning 8 bricks, no overlaps, same y level. its just the walls are still overlapping with the last brick.
+                Instantiate(BrickPrefab, new Vector3(x, y, 0), Quaternion.identity); //ok yeah this works. Im spawning 8 bricks, no overlaps, same y level. its just the walls are still overlapping with the last brick.
             }
+        }
         
     }
 
